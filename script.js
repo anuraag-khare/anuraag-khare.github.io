@@ -58,4 +58,33 @@ document.addEventListener('DOMContentLoaded', () => {
         observer.observe(el);
     });
 
+    // --- Sticky Navbar Show/Hide on Scroll ---
+    const header = document.querySelector('header');
+    let lastScrollY = window.scrollY;
+    let ticking = false;
+
+    function handleNavbar() {
+        const currentScrollY = window.scrollY;
+        if (currentScrollY > lastScrollY && currentScrollY > 60) {
+            // Scrolling down
+            header.classList.remove('sticky-navbar-show');
+            header.classList.add('sticky-navbar-hide');
+        } else {
+            // Scrolling up
+            header.classList.remove('sticky-navbar-hide');
+            header.classList.add('sticky-navbar-show');
+        }
+        lastScrollY = currentScrollY;
+        ticking = false;
+    }
+
+    window.addEventListener('scroll', () => {
+        if (!ticking) {
+            window.requestAnimationFrame(handleNavbar);
+            ticking = true;
+        }
+    });
+    // Show navbar by default
+    header.classList.add('sticky-navbar-show');
+
 });

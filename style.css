@@ -98,95 +98,111 @@ section {
 }
 
 
-/* --- Fixed Experience Timeline --- */
+/* --- Experience Timeline --- */
+.timeline-container {
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px 0;
+}
+
 .timeline-line {
     position: absolute;
     left: 50%;
+    transform: translateX(-50%);
     top: 0;
     bottom: 0;
-    width: 2px;
+    width: 5px;
     background-color: rgba(255, 255, 255, 0.2);
-    transform: translateX(-50%);
 }
 
 .timeline-item {
     position: relative;
+    margin-bottom: 29px;
     width: 100%;
-    padding-left: 50%;
-    margin-bottom: 50px;
+    display: flex;
+    justify-content: center;
 }
+
 .timeline-item:last-child {
     margin-bottom: 0;
 }
 
-/* Item on the left side */
-.timeline-item:nth-child(odd) {
-    padding-left: 0;
-    padding-right: 50%;
-}
-.timeline-item:nth-child(odd) .timeline-content {
-    text-align: right;
-    float: left;
-    margin-right: 25px;
-}
-.timeline-item:nth-child(odd) .timeline-dot {
-    right: -8px;
-    left: auto;
-}
-
-/* Item on the right side */
 .timeline-content {
-    background-color: rgba(31, 41, 55, 0.5); /* bg-gray-800/50 */
+    background-color: rgba(31, 41, 55, 0.5);
     border: 1px solid rgba(255, 255, 255, 0.1);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
     padding: 20px;
     border-radius: 8px;
-    float: right;
-    margin-left: 25px;
-    width: calc(100% - 25px);
     position: relative;
+    width: 100%;
+    max-width: 600px;
 }
 
-.timeline-dot {
+
+.timeline-item:last-child .timeline-dot {
+    display: none;
+}
+
+.timeline-content::after {
+    content: '';
     position: absolute;
-    width: 16px;
-    height: 16px;
-    background-color: #3b82f6;
-    border-radius: 50%;
-    top: 15px;
-    left: -8px;
-    border: 3px solid #0a0e17; /* Matches body background */
+    bottom: -30px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 2px;
+    height: 30px;
+    background-color: rgba(255, 255, 255, 0.2);
 }
 
-.timeline-date {
-    display: block;
-    font-size: 0.75rem;
-    color: #9ca3af; /* text-gray-400 */
-    margin-bottom: 4px;
-    font-weight: 600;
+.timeline-item:last-child .timeline-content::after {
+    display: none;
 }
 
-/* Mobile responsive for timeline */
+/* Fix for multi-line list items in experience section */
+.timeline-content ul {
+    list-style-position: outside;
+    padding-left: 1.25rem;
+}
+
+.timeline-content li {
+    padding-left: 0.25rem;
+    margin-bottom: 0.5rem;
+}
+
+.timeline-content li:last-child {
+    margin-bottom: 0;
+}
+
 @media (max-width: 768px) {
-    .timeline-line {
-        left: 8px;
+    .timeline-container {
+        padding: 10px;
     }
-    .timeline-item, .timeline-item:nth-child(odd) {
-        padding-left: 30px;
-        padding-right: 0;
+
+    .timeline-content {
+        max-width: 100%;
     }
-    .timeline-content, .timeline-item:nth-child(odd) .timeline-content {
-        width: 100%;
-        text-align: left;
-        float: none;
-        margin-left: 0;
-        margin-right: 0;
-    }
-    .timeline-dot, .timeline-item:nth-child(odd) .timeline-dot {
-        left: -8px;
-        right: auto;
-    }
+}
+
+/* Header Styles */
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    z-index: 50;
+    background: rgba(17, 24, 39, 0.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Add padding to main content to prevent overlap with fixed header */
+main {
+    padding-top: 80px;
 }
 
 /* --- Landing & Scroll Animations --- */
@@ -214,4 +230,33 @@ section {
 
 .animate-fade-in-down {
     animation: fade-in-down 0.8s ease-out forwards;
+}
+
+/* Sticky Navbar Hide/Show */
+.sticky-navbar-hide {
+    transform: translateY(-100%);
+    transition: transform 0.3s ease-in-out;
+}
+.sticky-navbar-show {
+    transform: translateY(0);
+    transition: transform 0.3s ease-in-out;
+}
+
+/* Ensure header is sticky (already fixed, but for clarity) */
+header {
+    position: sticky;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 50;
+    background: rgba(17, 24, 39, 0.7); /* fallback for blur */
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    box-shadow: 0 2px 16px 0 rgba(0,0,0,0.10);
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+/* Add margin to experience section to separate from projects */
+#experience {
+    margin-bottom: 80px;
 }
