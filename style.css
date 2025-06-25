@@ -92,6 +92,46 @@ body {
 }
 
 
+/* Prevent text animation from causing layout shifts */
+.animated-role-container {
+    min-height: 4rem; /* for mobile */
+    margin-bottom: 2rem; /* Add space below the container */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1.2;
+}
+
+@media (min-width: 768px) {
+    .animated-role-container {
+        min-height: 5rem; /* for desktop */
+        margin-bottom: 2.5rem;
+    }
+}
+
+.hero-description {
+    margin-top: 1rem;
+}
+
+.title-container {
+    height: 130px; /* Increased height for mobile */
+    margin-bottom: 1rem;
+    position: relative;
+    overflow: hidden; /* Prevent any content overflow */
+}
+
+@media (min-width: 768px) {
+    .title-container {
+        height: 175px; /* Increased height for desktop */
+    }
+}
+
+#animated-role {
+    display: inline-block;
+    white-space: nowrap;
+    position: relative;
+}
+
 /* Make section scroll margin consistent */
 section {
     scroll-margin-top: 80px;

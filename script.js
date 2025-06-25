@@ -98,12 +98,13 @@ document.addEventListener('DOMContentLoaded', () => {
         let roleIndex = 0;
         let charIndex = 0;
         let isDeleting = false;
-        let typingDelay = 80;
-        let erasingDelay = 40;
-        let pauseAfterTyping = 1200;
-        let pauseAfterErasing = 400;
+        let typingDelay = 100;  // Slightly slower typing
+        let erasingDelay = 50;  // Slightly slower erasing
+        let pauseAfterTyping = 2500;    // Much longer pause after typing
+        let pauseAfterErasing = 800;   // Longer pause after erasing
 
         function typeRole() {
+            const currentScrollY = window.scrollY;  // Store current scroll position
             const currentRole = roles[roleIndex];
             if (!isDeleting) {
                 // Typing
@@ -127,6 +128,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     setTimeout(typeRole, erasingDelay);
                 }
             }
+            window.scrollTo(0, currentScrollY);  // Maintain scroll position
         }
         // Start with the name, but immediately start animating
         setTimeout(typeRole, 1200);
