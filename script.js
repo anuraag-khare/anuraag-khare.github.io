@@ -4,17 +4,50 @@ document.addEventListener('DOMContentLoaded', () => {
     const mobileMenuButton = document.getElementById('mobile-menu-button');
     const mobileMenu = document.getElementById('mobile-menu');
     const navLinks = document.querySelectorAll('.nav-link-mobile');
+    const header = document.querySelector('header');
 
     if (mobileMenuButton && mobileMenu) {
-        mobileMenuButton.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
+        // Animate mobile menu open/close
+        mobileMenu.classList.add('transition-transform', 'duration-300', 'ease-in-out');
+        mobileMenuButton.addEventListener('click', (e) => {
+            e.stopPropagation();
+            if (mobileMenu.classList.contains('hidden')) {
+                mobileMenu.classList.remove('hidden');
+                mobileMenu.classList.remove('scale-y-0');
+                mobileMenu.classList.add('scale-y-100');
+                document.body.style.overflow = 'hidden'; // Prevent background scroll
+            } else {
+                mobileMenu.classList.add('scale-y-0');
+                setTimeout(() => {
+                    mobileMenu.classList.add('hidden');
+                    mobileMenu.classList.remove('scale-y-100');
+                    document.body.style.overflow = '';
+                }, 300);
+            }
         });
 
         // Close mobile menu when a link is clicked
         navLinks.forEach(link => {
             link.addEventListener('click', () => {
-                mobileMenu.classList.add('hidden');
+                mobileMenu.classList.add('scale-y-0');
+                setTimeout(() => {
+                    mobileMenu.classList.add('hidden');
+                    mobileMenu.classList.remove('scale-y-100');
+                    document.body.style.overflow = '';
+                }, 300);
             });
+        });
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!mobileMenu.classList.contains('hidden') && !mobileMenu.contains(e.target) && e.target !== mobileMenuButton && !mobileMenuButton.contains(e.target)) {
+                mobileMenu.classList.add('scale-y-0');
+                setTimeout(() => {
+                    mobileMenu.classList.add('hidden');
+                    mobileMenu.classList.remove('scale-y-100');
+                    document.body.style.overflow = '';
+                }, 300);
+            }
         });
     }
 
@@ -57,35 +90,6 @@ document.addEventListener('DOMContentLoaded', () => {
     animatedElements.forEach(el => {
         observer.observe(el);
     });
-
-    // --- Sticky Navbar Show/Hide on Scroll ---
-    const header = document.querySelector('header');
-    let lastScrollY = window.scrollY;
-    let ticking = false;
-
-    function handleNavbar() {
-        const currentScrollY = window.scrollY;
-        if (currentScrollY > lastScrollY && currentScrollY > 60) {
-            // Scrolling down
-            header.classList.remove('sticky-navbar-show');
-            header.classList.add('sticky-navbar-hide');
-        } else {
-            // Scrolling up
-            header.classList.remove('sticky-navbar-hide');
-            header.classList.add('sticky-navbar-show');
-        }
-        lastScrollY = currentScrollY;
-        ticking = false;
-    }
-
-    window.addEventListener('scroll', () => {
-        if (!ticking) {
-            window.requestAnimationFrame(handleNavbar);
-            ticking = true;
-        }
-    });
-    // Show navbar by default
-    header.classList.add('sticky-navbar-show');
 
     // --- Animated Role Typing Effect ---
     const roleElement = document.getElementById('animated-role');

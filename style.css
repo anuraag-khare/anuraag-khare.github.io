@@ -217,12 +217,13 @@ header {
     left: 0;
     right: 0;
     width: 100%;
-    z-index: 50;
+    z-index: 1000;
     background: rgba(17, 24, 39, 0.85);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s ease-in-out;
 }
 
 /* Add padding to main content to prevent overlap with fixed header */
@@ -267,21 +268,19 @@ main {
     transition: transform 0.3s ease-in-out;
 }
 
-/* Ensure header is sticky (already fixed, but for clarity) */
-header {
-    position: sticky;
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 50;
-    background: rgba(17, 24, 39, 0.7); /* fallback for blur */
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-    box-shadow: 0 2px 16px 0 rgba(0,0,0,0.10);
-    border-bottom: 1px solid rgba(255,255,255,0.08);
-}
-
 /* Add margin to experience section to separate from projects */
 #experience {
     margin-bottom: 80px;
+}
+
+/* Mobile Menu Scale Animation */
+#mobile-menu {
+    transform: scaleY(0);
+    transform-origin: top;
+}
+#mobile-menu.scale-y-100 {
+    transform: scaleY(1);
+}
+#mobile-menu.scale-y-0 {
+    transform: scaleY(0);
 }
