@@ -87,4 +87,45 @@ document.addEventListener('DOMContentLoaded', () => {
     // Show navbar by default
     header.classList.add('sticky-navbar-show');
 
+    // --- Animated Role Typing Effect ---
+    const roleElement = document.getElementById('animated-role');
+    if (roleElement) {
+        const roles = ["Anuraag Khare", "a backend developer", "a GenAI specialist", "a Founding Engineer"];
+        let roleIndex = 0;
+        let charIndex = 0;
+        let isDeleting = false;
+        let typingDelay = 80;
+        let erasingDelay = 40;
+        let pauseAfterTyping = 1200;
+        let pauseAfterErasing = 400;
+
+        function typeRole() {
+            const currentRole = roles[roleIndex];
+            if (!isDeleting) {
+                // Typing
+                roleElement.textContent = currentRole.substring(0, charIndex + 1);
+                charIndex++;
+                if (charIndex === currentRole.length) {
+                    isDeleting = true;
+                    setTimeout(typeRole, pauseAfterTyping);
+                } else {
+                    setTimeout(typeRole, typingDelay);
+                }
+            } else {
+                // Deleting
+                roleElement.textContent = currentRole.substring(0, charIndex - 1);
+                charIndex--;
+                if (charIndex === 0) {
+                    isDeleting = false;
+                    roleIndex = (roleIndex + 1) % roles.length;
+                    setTimeout(typeRole, pauseAfterErasing);
+                } else {
+                    setTimeout(typeRole, erasingDelay);
+                }
+            }
+        }
+        // Start with the name, but immediately start animating
+        setTimeout(typeRole, 1200);
+    }
+
 });
