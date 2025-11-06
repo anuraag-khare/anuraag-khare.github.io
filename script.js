@@ -94,7 +94,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- Animated Role Typing Effect ---
     const roleElement = document.getElementById('animated-role');
     if (roleElement) {
-        const roles = ["Anuraag Khare", "a backend developer", "a GenAI specialist", "a Founding Engineer"];
+        const roles = ["Anuraag Khare", "a backend developer", "a GenAI Developer", "a Founding Engineer"];
         let roleIndex = 0;
         let charIndex = 0;
         let isDeleting = false;
