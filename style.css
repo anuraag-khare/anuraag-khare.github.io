@@ -2,7 +2,8 @@
 
 body {
     font-family: 'Inter', sans-serif;
-    overflow-x: hidden; /* Prevent horizontal scroll caused by animations */
+    overflow-x: hidden;
+    /* Prevent horizontal scroll caused by animations */
 }
 
 /* --- Animated Gradient Background --- */
@@ -43,9 +44,11 @@ body {
     0% {
         transform: translate(-20%, -20%) scale(1.1);
     }
+
     50% {
         transform: translate(80%, 40%) scale(1.3);
     }
+
     100% {
         transform: translate(20%, -30%) scale(1);
     }
@@ -55,9 +58,11 @@ body {
     0% {
         transform: translate(0, 0) scale(1);
     }
+
     50% {
         transform: translate(-40vw, -30vh) scale(1.2);
     }
+
     100% {
         transform: translate(-10vw, -10vh) scale(0.95);
     }
@@ -66,23 +71,27 @@ body {
 .content-wrapper {
     position: relative;
     z-index: 2;
-    background-color: rgba(10, 14, 23, 0.6); /* Semi-transparent dark background */
+    background-color: rgba(10, 14, 23, 0.6);
+    /* Semi-transparent dark background */
     backdrop-filter: blur(40px);
     -webkit-backdrop-filter: blur(40px);
 }
 
 
 /* --- Animated Gradient Text --- */
-.animated-gradient-text, .animated-gradient-text-header {
+.animated-gradient-text,
+.animated-gradient-text-header {
     background: linear-gradient(90deg, #3b82f6, #8b5cf6, #ec4899, #3b82f6);
     background-size: 200% auto;
     -webkit-background-clip: text;
+    background-clip: text;
     -webkit-text-fill-color: transparent;
     animation: gradient-flow 8s linear infinite;
 }
 
 .animated-gradient-text-header {
-    animation-duration: 5s; /* Faster animation for header */
+    animation-duration: 5s;
+    /* Faster animation for header */
 }
 
 @keyframes gradient-flow {
@@ -93,43 +102,100 @@ body {
 
 
 /* Prevent text animation from causing layout shifts */
-.animated-role-container {
-    min-height: 4rem; /* for mobile */
-    margin-bottom: 2rem; /* Add space below the container */
+/* --- Vertical Text Slider --- */
+.sliding-text-container {
+    height: 1.2em;
+    line-height: 1.2;
+    overflow: hidden;
+    display: inline-flex;
+    flex-direction: column;
+    vertical-align: bottom;
+    /* Changed to bottom to align with text baseline better in flex */
+    margin-top: 0;
+    /* Ensure no top margin */
+}
+
+.sliding-text-content {
+    display: block;
+    animation: slide-vertical 10s infinite cubic-bezier(0.68, -0.55, 0.27, 1.55);
+}
+
+.sliding-text-item {
+    height: 1.2em;
+    line-height: 1.2;
     display: flex;
     align-items: center;
     justify-content: center;
-    line-height: 1.2;
-}
-
-@media (min-width: 768px) {
-    .animated-role-container {
-        min-height: 5rem; /* for desktop */
-        margin-bottom: 2.5rem;
-    }
-}
-
-.hero-description {
-    margin-top: 1rem;
-}
-
-.title-container {
-    height: 130px; /* Increased height for mobile */
-    margin-bottom: 1rem;
-    position: relative;
-    overflow: hidden; /* Prevent any content overflow */
-}
-
-@media (min-width: 768px) {
-    .title-container {
-        height: 175px; /* Increased height for desktop */
-    }
-}
-
-#animated-role {
-    display: inline-block;
     white-space: nowrap;
-    position: relative;
+}
+
+@keyframes slide-vertical {
+
+    0%,
+    20% {
+        transform: translateY(0);
+    }
+
+    25%,
+    45% {
+        transform: translateY(-1.2em);
+    }
+
+    50%,
+    70% {
+        transform: translateY(-2.4em);
+    }
+
+    75%,
+    95% {
+        transform: translateY(-3.6em);
+    }
+
+    100% {
+        transform: translateY(-4.8em);
+    }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .sliding-text-container {
+        display: flex;
+        /* Stack vertically on mobile if needed, or keep inline */
+        height: 1.3em;
+        /* Slightly more space */
+        margin-top: 0.5rem;
+    }
+
+    .sliding-text-item {
+        height: 1.3em;
+    }
+
+    @keyframes slide-vertical {
+
+        0%,
+        20% {
+            transform: translateY(0);
+        }
+
+        25%,
+        45% {
+            transform: translateY(-1.3em);
+        }
+
+        50%,
+        70% {
+            transform: translateY(-2.6em);
+        }
+
+        75%,
+        95% {
+            transform: translateY(-3.9em);
+        }
+
+        100% {
+            transform: translateY(-5.2em);
+        }
+    }
 }
 
 /* Make section scroll margin consistent */
@@ -288,6 +354,7 @@ main {
         opacity: 0;
         transform: translateY(-20px);
     }
+
     100% {
         opacity: 1;
         transform: translateY(0);
@@ -303,6 +370,7 @@ main {
     transform: translateY(-100%);
     transition: transform 0.3s ease-in-out;
 }
+
 .sticky-navbar-show {
     transform: translateY(0);
     transition: transform 0.3s ease-in-out;
@@ -318,9 +386,11 @@ main {
     transform: scaleY(0);
     transform-origin: top;
 }
+
 #mobile-menu.scale-y-100 {
     transform: scaleY(1);
 }
+
 #mobile-menu.scale-y-0 {
     transform: scaleY(0);
 }

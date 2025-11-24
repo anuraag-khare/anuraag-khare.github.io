@@ -91,47 +91,35 @@ document.addEventListener('DOMContentLoaded', () => {
         observer.observe(el);
     });
 
-    // --- Animated Role Typing Effect ---
-    const roleElement = document.getElementById('animated-role');
-    if (roleElement) {
-        const roles = ["Anuraag Khare", "a backend developer", "a GenAI Developer", "a Founding Engineer"];
-        let roleIndex = 0;
-        let charIndex = 0;
-        let isDeleting = false;
-        let typingDelay = 100;  // Slightly slower typing
-        let erasingDelay = 50;  // Slightly slower erasing
-        let pauseAfterTyping = 2500;    // Much longer pause after typing
-        let pauseAfterErasing = 800;   // Longer pause after erasing
+    // --- Sticky Header on Scroll Up ---
+    let lastScrollY = window.scrollY;
+    const scrollThreshold = 100; // Minimum scroll before hiding
+    const scrollDelta = 10; // Minimum scroll change to trigger action
 
-        function typeRole() {
-            const currentScrollY = window.scrollY;  // Store current scroll position
-            const currentRole = roles[roleIndex];
-            if (!isDeleting) {
-                // Typing
-                roleElement.textContent = currentRole.substring(0, charIndex + 1);
-                charIndex++;
-                if (charIndex === currentRole.length) {
-                    isDeleting = true;
-                    setTimeout(typeRole, pauseAfterTyping);
+    window.addEventListener('scroll', () => {
+        const currentScrollY = window.scrollY;
+
+        // Only trigger if we've scrolled past the threshold
+        if (currentScrollY > scrollThreshold) {
+            // Check if scroll difference is significant enough
+            if (Math.abs(currentScrollY - lastScrollY) > scrollDelta) {
+                if (currentScrollY > lastScrollY) {
+                    // Scrolling down -> Hide header
+                    header.classList.add('sticky-navbar-hide');
+                    header.classList.remove('sticky-navbar-show');
                 } else {
-                    setTimeout(typeRole, typingDelay);
+                    // Scrolling up -> Show header
+                    header.classList.add('sticky-navbar-show');
+                    header.classList.remove('sticky-navbar-hide');
                 }
-            } else {
-                // Deleting
-                roleElement.textContent = currentRole.substring(0, charIndex - 1);
-                charIndex--;
-                if (charIndex === 0) {
-                    isDeleting = false;
-                    roleIndex = (roleIndex + 1) % roles.length;
-                    setTimeout(typeRole, pauseAfterErasing);
-                } else {
-                    setTimeout(typeRole, erasingDelay);
-                }
+                lastScrollY = currentScrollY; // Update lastScrollY only when action is taken
             }
-            window.scrollTo(0, currentScrollY);  // Maintain scroll position
+        } else {
+            // At top of page -> Show header
+            header.classList.remove('sticky-navbar-hide');
+            header.classList.add('sticky-navbar-show');
+            lastScrollY = currentScrollY;
         }
-        // Start with the name, but immediately start animating
-        setTimeout(typeRole, 1200);
-    }
+    });
 
 });
