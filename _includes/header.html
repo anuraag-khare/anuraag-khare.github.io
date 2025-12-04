@@ -1,0 +1,34 @@
+<header id="main-header">
+    <div class="container" style="display: flex; justify-content: space-between; align-items: center;">
+        <a href="{{ '/' | relative_url }}" style="font-family: var(--font-heading); font-weight: 800; font-size: 1.5rem; color: #fff;">AK<span style="color: var(--accent-primary);">.</span></a>
+
+        <!-- Desktop Nav -->
+        <nav style="display: none;" class="desktop-nav">
+            <div style="display: flex; gap: 2rem;">
+                <a href="{{ '/' | relative_url }}#about" class="nav-link">About</a>
+                <a href="{{ '/' | relative_url }}#experience" class="nav-link">Experience</a>
+                <a href="{{ '/' | relative_url }}#projects" class="nav-link">Projects</a>
+                <a href="{{ '/blog/' | relative_url }}" class="nav-link {% if page.url contains '/blog' %}active{% endif %}">Blog</a>
+                <a href="{{ '/' | relative_url }}#contact" class="nav-link">Contact</a>
+            </div>
+        </nav>
+
+        <!-- Mobile Menu Button -->
+        <button id="mobile-menu-button" style="background: none; border: none; color: #fff; font-size: 1.5rem; cursor: pointer;" class="mobile-only">
+            <i class="fas fa-bars"></i>
+        </button>
+    </div>
+
+    <!-- Mobile Menu Overlay -->
+    <div id="mobile-menu" style="position: fixed; top: 0; left: 0; width: 100%; height: 100vh; display: none; flex-direction: column; align-items: center; justify-content: center; z-index: 2000;">
+        <button id="close-menu" style="position: absolute; top: 2rem; right: 2rem; background: none; border: none; color: #fff; font-size: 2rem; cursor: pointer;">&times;</button>
+        <nav style="display: flex; flex-direction: column; gap: 2rem; text-align: center;">
+            <a href="{{ '/' | relative_url }}#about" class="nav-link" style="font-size: 1.5rem;">About</a>
+            <a href="{{ '/' | relative_url }}#experience" class="nav-link" style="font-size: 1.5rem;">Experience</a>
+            <a href="{{ '/' | relative_url }}#projects" class="nav-link" style="font-size: 1.5rem;">Projects</a>
+            <a href="{{ '/blog/' | relative_url }}" class="nav-link" style="font-size: 1.5rem;">Blog</a>
+            <a href="{{ '/' | relative_url }}#contact" class="nav-link" style="font-size: 1.5rem;">Contact</a>
+        </nav>
+    </div>
+</header>
+

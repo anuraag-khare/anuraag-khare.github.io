@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {% include head.html %}
+</head>
+
+<body>
+    <div id="cursor-glow"></div>
+    
+    {% include header.html %}
+
+    <main>
+        {{ content }}
+    </main>
+
+    {% include footer.html %}
+
+    <style>
+        @media (min-width: 768px) {
+            .desktop-nav {
+                display: block !important;
+            }
+
+            .mobile-only {
+                display: none !important;
+            }
+
+            .lg-grid {
+                grid-template-columns: 2fr 3fr !important;
+            }
+        }
+    </style>
+
+    <script src="{{ '/assets/js/script.js' | relative_url }}"></script>
+</body>
+
+</html>
+

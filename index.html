@@ -1,286 +1,242 @@
-<!DOCTYPE html>
-<html lang="en">
+---
+layout: default
+title: Home
+description: The portfolio of Anuraag Khare, a Software Engineer specializing in backend systems, GenAI, and cloud
+technologies.
+---
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Anuraag Khare | Backend Software Engineer</title>
-    <meta name="description"
-        content="The portfolio of Anuraag Khare, a Software Engineer specializing in backend systems, GenAI, and cloud technologies.">
-    <link rel="icon" type="image/svg+xml" href="favicon.svg">
-
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@500;700;800&display=swap"
-        rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
-    <!-- Local Stylesheet -->
-    <link rel="stylesheet" href="style.css">
-</head>
-
-<body>
-    <div id="cursor-glow"></div>
-
-    <!-- Header -->
-    <header id="main-header">
-        <div class="container" style="display: flex; justify-content: space-between; align-items: center;">
-            <a href="#"
-                style="font-family: var(--font-heading); font-weight: 800; font-size: 1.5rem; color: #fff;">AK<span
-                    style="color: var(--accent-primary);">.</span></a>
-
-            <!-- Desktop Nav -->
-            <nav style="display: none;" class="desktop-nav">
-                <div style="display: flex; gap: 2rem;">
-                    <a href="#about" class="nav-link">About</a>
-                    <a href="#experience" class="nav-link">Experience</a>
-                    <a href="#projects" class="nav-link">Projects</a>
-                    <a href="#contact" class="nav-link">Contact</a>
-                </div>
-            </nav>
-
-            <!-- Mobile Menu Button -->
-            <button id="mobile-menu-button"
-                style="background: none; border: none; color: #fff; font-size: 1.5rem; cursor: pointer;"
-                class="mobile-only">
-                <i class="fas fa-bars"></i>
-            </button>
+<!-- Hero Section -->
+<section id="hero">
+    <div class="container fade-in-up">
+        <h1 class="hero-title">
+            Hi, I'm <br>
+            <span class="sliding-text-container">
+                <span class="sliding-text-content">
+                    <span class="sliding-text-item">Anuraag Khare</span>
+                    <span class="sliding-text-item">a Backend Dev</span>
+                    <span class="sliding-text-item">a GenAI Dev</span>
+                    <span class="sliding-text-item">a Founding Eng</span>
+                    <span class="sliding-text-item">Anuraag Khare</span>
+                </span>
+            </span>
+        </h1>
+        <p style="font-size: 1.2rem; color: var(--text-secondary); max-width: 600px; margin: 0 auto 2.5rem;">
+            Software Engineer crafting scalable backend systems and exploring the frontiers of Generative AI.
+        </p>
+        <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+            <a href="#contact" class="btn btn-primary">Get In Touch</a>
+            <a href="{{ '/blog/' | relative_url }}" class="btn btn-secondary">Read My Blog</a>
         </div>
+    </div>
+</section>
 
-        <!-- Mobile Menu Overlay -->
-        <div id="mobile-menu"
-            style="position: fixed; top: 0; left: 0; width: 100%; height: 100vh; display: none; flex-direction: column; align-items: center; justify-content: center; z-index: 2000;">
-            <button id="close-menu"
-                style="position: absolute; top: 2rem; right: 2rem; background: none; border: none; color: #fff; font-size: 2rem; cursor: pointer;">&times;</button>
-            <nav style="display: flex; flex-direction: column; gap: 2rem; text-align: center;">
-                <a href="#about" class="nav-link" style="font-size: 1.5rem;">About</a>
-                <a href="#experience" class="nav-link" style="font-size: 1.5rem;">Experience</a>
-                <a href="#projects" class="nav-link" style="font-size: 1.5rem;">Projects</a>
-                <a href="#contact" class="nav-link" style="font-size: 1.5rem;">Contact</a>
-            </nav>
-        </div>
-    </header>
-
-    <main>
-        <!-- Hero Section -->
-        <section id="hero">
-            <div class="container fade-in-up">
-                <h1 class="hero-title">
-                    Hi, I'm <br>
-                    <span class="sliding-text-container">
-                        <span class="sliding-text-content">
-                            <span class="sliding-text-item">Anuraag Khare</span>
-                            <span class="sliding-text-item">a Backend Dev</span>
-                            <span class="sliding-text-item">a GenAI Dev</span>
-                            <span class="sliding-text-item">Founding Eng</span>
-                            <span class="sliding-text-item">Anuraag Khare</span>
-                        </span>
-                    </span>
-                </h1>
-                <p style="font-size: 1.2rem; color: var(--text-secondary); max-width: 600px; margin: 0 auto 2.5rem;">
-                    Software Engineer crafting scalable backend systems and exploring the frontiers of Generative AI.
+<!-- About Section -->
+<section id="about">
+    <div class="container">
+        <div style="display: grid; grid-template-columns: 1fr; gap: 4rem; align-items: start;" class="lg-grid">
+            <!-- Profile Image & Bio -->
+            <div class="fade-in-up delay-100">
+                <h2 style="font-size: 2.5rem; margin-bottom: 1.5rem;">About <span class="accent-text">Me</span></h2>
+                <p style="color: var(--text-secondary); margin-bottom: 1.5rem;">
+                    As a founding engineer and backend developer, I thrive on building scalable, efficient
+                    systems from the ground up. With a strong foundation in Python, Go, and cloud platforms like
+                    GCP and AWS, I also specialize in integrating GenAI solutions, optimizing data pipelines,
+                    and enhancing backend system performance. My experience ranges from developing RAG-based
+                    automation to designing scalable GenAI agentic systems.
                 </p>
-                <div style="display: flex; gap: 1rem; justify-content: center;">
-                    <a href="#contact" class="btn btn-primary">Get In Touch</a>
-                    <a href="" class="btn btn-secondary">Download Resume</a>
-                </div>
             </div>
-        </section>
 
-        <!-- About Section -->
-        <section id="about">
-            <div class="container">
-                <div style="display: grid; grid-template-columns: 1fr; gap: 4rem; align-items: start;" class="lg-grid">
-                    <!-- Profile Image & Bio -->
-                    <div class="fade-in-up delay-100">
-                        <h2 style="font-size: 2.5rem; margin-bottom: 1.5rem;">About <span class="accent-text">Me</span>
-                        </h2>
-                        <p style="color: var(--text-secondary); margin-bottom: 1.5rem;">
-                            As a founding engineer and backend developer, I thrive on building scalable, efficient
-                            systems from the ground up. With a strong foundation in Python, Go, and cloud platforms like
-                            GCP and AWS, I also specialize in integrating GenAI solutions, optimizing data pipelines,
-                            and enhancing backend system performance. My experience ranges from developing RAG-based
-                            automation to designing scalable GenAI agentic systems.
-                        </p>
+            <!-- Skills -->
+            <div class="fade-in-up delay-200">
+                <h3 style="font-size: 1.5rem; margin-bottom: 1.5rem;">Technical Arsenal</h3>
+
+                <div style="margin-bottom: 2rem;">
+                    <h4 style="color: #fff; margin-bottom: 1rem; font-size: 1.1rem;">Languages</h4>
+                    <div style="display: flex; flex-wrap: wrap; gap: 0.8rem;">
+                        <span class="tech-tag">Python</span><span class="tech-tag">Java</span><span
+                            class="tech-tag">Go</span><span class="tech-tag">TypeScript</span>
                     </div>
+                </div>
 
-                    <!-- Skills -->
-                    <div class="fade-in-up delay-200">
-                        <h3 style="font-size: 1.5rem; margin-bottom: 1.5rem;">Technical Arsenal</h3>
+                <div style="margin-bottom: 2rem;">
+                    <h4 style="color: #fff; margin-bottom: 1rem; font-size: 1.1rem;">Web & Databases</h4>
+                    <div style="display: flex; flex-wrap: wrap; gap: 0.8rem;">
+                        <span class="tech-tag">Django</span><span class="tech-tag">FastAPI</span><span
+                            class="tech-tag">SpringBoot</span><span class="tech-tag">Express.js</span><span
+                            class="tech-tag">PostgreSQL</span><span class="tech-tag">MongoDB</span><span
+                            class="tech-tag">Redis</span>
+                    </div>
+                </div>
 
-                        <div style="margin-bottom: 2rem;">
-                            <h4 style="color: #fff; margin-bottom: 1rem; font-size: 1.1rem;">Languages</h4>
-                            <div style="display: flex; flex-wrap: wrap; gap: 0.8rem;">
-                                <span class="tech-tag">Python</span><span class="tech-tag">Java</span><span
-                                    class="tech-tag">Go</span><span class="tech-tag">TypeScript</span>
-                            </div>
-                        </div>
-
-                        <div style="margin-bottom: 2rem;">
-                            <h4 style="color: #fff; margin-bottom: 1rem; font-size: 1.1rem;">Web & Databases</h4>
-                            <div style="display: flex; flex-wrap: wrap; gap: 0.8rem;">
-                                <span class="tech-tag">Django</span><span class="tech-tag">FastAPI</span><span
-                                    class="tech-tag">SpringBoot</span><span class="tech-tag">Express.js</span><span
-                                    class="tech-tag">PostgreSQL</span><span class="tech-tag">MongoDB</span><span
-                                    class="tech-tag">Redis</span>
-                            </div>
-                        </div>
-
-                        <div>
-                            <h4 style="color: #fff; margin-bottom: 1rem; font-size: 1.1rem;">Cloud & Tools</h4>
-                            <div style="display: flex; flex-wrap: wrap; gap: 0.8rem;">
-                                <span class="tech-tag">GCP</span><span class="tech-tag">AWS</span><span
-                                    class="tech-tag">RabbitMQ</span><span class="tech-tag">Docker</span><span
-                                    class="tech-tag">Kubernetes</span><span class="tech-tag">GenAI</span>
-                            </div>
-                        </div>
+                <div>
+                    <h4 style="color: #fff; margin-bottom: 1rem; font-size: 1.1rem;">Cloud & Tools</h4>
+                    <div style="display: flex; flex-wrap: wrap; gap: 0.8rem;">
+                        <span class="tech-tag">GCP</span><span class="tech-tag">AWS</span><span
+                            class="tech-tag">RabbitMQ</span><span class="tech-tag">Docker</span><span
+                            class="tech-tag">Kubernetes</span><span class="tech-tag">GenAI</span>
                     </div>
                 </div>
             </div>
-        </section>
-
-        <!-- Experience Section -->
-        <section id="experience">
-            <div class="container">
-                <h2 style="font-size: 2.5rem; margin-bottom: 3rem; text-align: center;">Work <span
-                        class="accent-text">Experience</span></h2>
-
-                <div style="max-width: 800px; margin: 0 auto;">
-                    <!-- HashedIn -->
-                    <div class="timeline-item fade-in-up">
-                        <span
-                            style="font-size: 0.9rem; color: var(--accent-secondary); display: block; margin-bottom: 0.5rem;">Jul
-                            2024 - Nov 2025</span>
-                        <h3 style="font-size: 1.5rem;">Software Engineer 2</h3>
-                        <p style="color: var(--text-secondary); margin-bottom: 1rem;">HashedIn by Deloitte</p>
-                        <ul style="color: var(--text-secondary); list-style-position: inside; font-size: 0.95rem;">
-                            <li>Developing backend systems for internal tools of a leading tech company.</li>
-                            <li>Engineered multi-agent systems for various business use cases using Google ADK, GCP and
-                                FastAPI.</li>
-                            <li>Optimized deployment pipelines, cutting server deployment time by 33%.</li>
-                        </ul>
-                    </div>
-
-                    <!-- Kuttl -->
-                    <div class="timeline-item fade-in-up delay-100">
-                        <span
-                            style="font-size: 0.9rem; color: var(--accent-secondary); display: block; margin-bottom: 0.5rem;">Feb
-                            2024 - Jul 2024</span>
-                        <h3 style="font-size: 1.5rem;">Founding Engineer</h3>
-                        <p style="color: var(--text-secondary); margin-bottom: 1rem;">Kuttl</p>
-                        <ul style="color: var(--text-secondary); list-style-position: inside; font-size: 0.95rem;">
-                            <li>Built a scalable backend for GenAI-powered invoice processing automation (FastAPI, Go).
-                            </li>
-                            <li>Integrated a RAG-based data pipeline to improve LLM contextual accuracy.</li>
-                            <li>Developed RESTful APIs to support complex data operations using Express.js and MongoDB.
-                            </li>
-                        </ul>
-                    </div>
-
-                    <!-- CommScope -->
-                    <div class="timeline-item fade-in-up delay-200">
-                        <span
-                            style="font-size: 0.9rem; color: var(--accent-secondary); display: block; margin-bottom: 0.5rem;">Jul
-                            2022 - Dec 2023</span>
-                        <h3 style="font-size: 1.5rem;">Engineer 1, R&D</h3>
-                        <p style="color: var(--text-secondary); margin-bottom: 1rem;">CommScope</p>
-                        <ul style="color: var(--text-secondary); list-style-position: inside; font-size: 0.95rem;">
-                            <li>Contributed to application layer of the 5G stack (C++, Python, django).</li>
-                            <li>Engineered a 5G CBRS channel selection algorithm to enhance network efficiency.</li>
-                            <li>Built a Django utility for on-premise K8s pod management, increasing reliability by 90%.
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Projects Section -->
-        <section id="projects">
-            <div class="container">
-                <h2 style="font-size: 2.5rem; margin-bottom: 3rem; text-align: center;">Featured <span
-                        class="accent-text">Projects</span></h2>
-
-                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
-                    <!-- HelloPDF -->
-                    <div class="card fade-in-up">
-                        <h3 style="font-size: 1.5rem; margin-bottom: 0.5rem;">HelloPDF</h3>
-                        <p style="color: var(--text-secondary); margin-bottom: 1.5rem; font-size: 0.95rem;">
-                            A RAG interface to chat with your PDF data using open-source LLMs. Ensures data privacy with
-                            local embeddings.
-                        </p>
-                        <div style="display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 1.5rem;">
-                            <span class="tech-tag">Python</span><span class="tech-tag">LangChain</span><span
-                                class="tech-tag">FAISS</span>
-                        </div>
-                        <a href="https://github.com/anuraag-khare/HelloPDF" target="_blank"
-                            style="color: var(--accent-primary); font-weight: 600;">View Code &rarr;</a>
-                    </div>
-
-                    <!-- Pest ID -->
-                    <div class="card fade-in-up delay-100">
-                        <h3 style="font-size: 1.5rem; margin-bottom: 0.5rem;">Pest Identification App</h3>
-                        <p style="color: var(--text-secondary); margin-bottom: 1.5rem; font-size: 0.95rem;">
-                            Flutter-based Android app to help farmers detect crop pests via live camera using AR and
-                            Deep Learning.
-                        </p>
-                        <div style="display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 1.5rem;">
-                            <span class="tech-tag">Flutter</span><span class="tech-tag">TensorFlow</span><span
-                                class="tech-tag">AR</span>
-                        </div>
-                        <a href="https://ieeexplore.ieee.org/document/9936053" target="_blank"
-                            style="color: var(--accent-primary); font-weight: 600;">View Publication &rarr;</a>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Contact Section -->
-        <section id="contact" style="text-align: center;">
-            <div class="container fade-in-up">
-                <h2 style="font-size: 2.5rem; margin-bottom: 1.5rem;">Let's <span class="accent-text">Connect</span>
-                </h2>
-                <p style="color: var(--text-secondary); max-width: 500px; margin: 0 auto 2.5rem;">
-                    I'm actively seeking new roles and opportunities. Let's build something amazing together.
-                </p>
-                <div style="display: flex; gap: 2rem; justify-content: center; font-size: 2rem;">
-                    <a href="https://github.com/anuraag-khare" target="_blank" style="color: var(--text-secondary);"><i
-                            class="fab fa-github"></i></a>
-                    <a href="https://www.linkedin.com/in/anuraagkhare/" target="_blank"
-                        style="color: var(--text-secondary);"><i class="fab fa-linkedin"></i></a>
-                    <a href="mailto:anuraagkhare2121@outlook.com" style="color: var(--text-secondary);"><i
-                            class="fas fa-envelope"></i></a>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <footer>
-        <div class="container" style="text-align: center;">
-            <p>&copy; 2026 Anuraag Khare. Designed & Vibe Coded with <span
-                    style="color: var(--accent-secondary);">&hearts;</span></p>
         </div>
-    </footer>
+    </div>
+</section>
 
-    <style>
-        @media (min-width: 768px) {
-            .desktop-nav {
-                display: block !important;
-            }
+<!-- Experience Section -->
+<section id="experience">
+    <div class="container">
+        <h2 style="font-size: 2.5rem; margin-bottom: 3rem; text-align: center;">Work <span
+                class="accent-text">Experience</span></h2>
 
-            .mobile-only {
-                display: none !important;
-            }
+        <div style="max-width: 800px; margin: 0 auto;">
+            <!-- HashedIn -->
+            <div class="timeline-item fade-in-up">
+                <span
+                    style="font-size: 0.9rem; color: var(--accent-secondary); display: block; margin-bottom: 0.5rem;">Jul
+                    2024 - Nov 2025</span>
+                <h3 style="font-size: 1.5rem;">Software Engineer 2</h3>
+                <p style="color: var(--text-secondary); margin-bottom: 1rem;">HashedIn by Deloitte</p>
+                <ul style="color: var(--text-secondary); list-style-position: inside; font-size: 0.95rem;">
+                    <li>Developing backend systems for internal tools of a leading tech company.</li>
+                    <li>Engineered multi-agent systems for various business use cases using Google ADK, GCP and FastAPI.
+                    </li>
+                    <li>Optimized deployment pipelines, cutting server deployment time by 33%.</li>
+                </ul>
+            </div>
 
-            .lg-grid {
-                grid-template-columns: 2fr 3fr !important;
-            }
-        }
-    </style>
+            <!-- Kuttl -->
+            <div class="timeline-item fade-in-up delay-100">
+                <span
+                    style="font-size: 0.9rem; color: var(--accent-secondary); display: block; margin-bottom: 0.5rem;">Feb
+                    2024 - Jul 2024</span>
+                <h3 style="font-size: 1.5rem;">Founding Engineer</h3>
+                <p style="color: var(--text-secondary); margin-bottom: 1rem;">Kuttl</p>
+                <ul style="color: var(--text-secondary); list-style-position: inside; font-size: 0.95rem;">
+                    <li>Built a scalable backend for GenAI-powered invoice processing automation (FastAPI, Go).</li>
+                    <li>Integrated a RAG-based data pipeline to improve LLM contextual accuracy.</li>
+                    <li>Developed RESTful APIs to support complex data operations using Express.js and MongoDB.</li>
+                </ul>
+            </div>
 
-    <script src="script.js"></script>
-</body>
+            <!-- CommScope -->
+            <div class="timeline-item fade-in-up delay-200">
+                <span
+                    style="font-size: 0.9rem; color: var(--accent-secondary); display: block; margin-bottom: 0.5rem;">Jul
+                    2022 - Dec 2023</span>
+                <h3 style="font-size: 1.5rem;">Engineer 1, R&D</h3>
+                <p style="color: var(--text-secondary); margin-bottom: 1rem;">CommScope</p>
+                <ul style="color: var(--text-secondary); list-style-position: inside; font-size: 0.95rem;">
+                    <li>Contributed to application layer of the 5G stack (C++, Python, django).</li>
+                    <li>Engineered a 5G CBRS channel selection algorithm to enhance network efficiency.</li>
+                    <li>Built a Django utility for on-premise K8s pod management, increasing reliability by 90%.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
 
-</html>
+<!-- Projects Section -->
+<section id="projects">
+    <div class="container">
+        <h2 style="font-size: 2.5rem; margin-bottom: 3rem; text-align: center;">Featured <span
+                class="accent-text">Projects</span></h2>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
+            <!-- HelloPDF -->
+            <div class="card fade-in-up">
+                <h3 style="font-size: 1.5rem; margin-bottom: 0.5rem;">HelloPDF</h3>
+                <p style="color: var(--text-secondary); margin-bottom: 1.5rem; font-size: 0.95rem;">
+                    A RAG interface to chat with your PDF data using open-source LLMs. Ensures data privacy with local
+                    embeddings.
+                </p>
+                <div style="display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 1.5rem;">
+                    <span class="tech-tag">Python</span><span class="tech-tag">LangChain</span><span
+                        class="tech-tag">FAISS</span>
+                </div>
+                <a href="https://github.com/anuraag-khare/HelloPDF" target="_blank"
+                    style="color: var(--accent-primary); font-weight: 600;">View Code &rarr;</a>
+            </div>
+
+            <!-- Pest ID -->
+            <div class="card fade-in-up delay-100">
+                <h3 style="font-size: 1.5rem; margin-bottom: 0.5rem;">Pest Identification App</h3>
+                <p style="color: var(--text-secondary); margin-bottom: 1.5rem; font-size: 0.95rem;">
+                    Flutter-based Android app to help farmers detect crop pests via live camera using AR and Deep
+                    Learning.
+                </p>
+                <div style="display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 1.5rem;">
+                    <span class="tech-tag">Flutter</span><span class="tech-tag">TensorFlow</span><span
+                        class="tech-tag">AR</span>
+                </div>
+                <a href="https://ieeexplore.ieee.org/document/9936053" target="_blank"
+                    style="color: var(--accent-primary); font-weight: 600;">View Publication &rarr;</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Latest Blog Posts Section -->
+<section id="blog-preview">
+    <div class="container">
+        <h2 style="font-size: 2.5rem; margin-bottom: 1.5rem; text-align: center;">Latest <span
+                class="accent-text">Posts</span></h2>
+        <p style="color: var(--text-secondary); text-align: center; margin-bottom: 3rem;">Thoughts on backend
+            engineering, GenAI, and software development.</p>
+
+        <div
+            style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-bottom: 2rem;">
+            {% for post in site.posts limit:3 %}
+            <article class="card fade-in-up">
+                <span
+                    style="font-size: 0.85rem; color: var(--accent-secondary); display: block; margin-bottom: 0.5rem;">
+                    {{ post.date | date: "%B %d, %Y" }}
+                </span>
+                <h3 style="font-size: 1.3rem; margin-bottom: 0.5rem;">
+                    <a href="{{ post.url | relative_url }}" style="color: #fff;">{{ post.title }}</a>
+                </h3>
+                <p style="color: var(--text-secondary); margin-bottom: 1rem; font-size: 0.95rem;">
+                    {{ post.excerpt | strip_html | truncate: 120 }}
+                </p>
+                {% if post.tags.size > 0 %}
+                <div style="display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 1rem;">
+                    {% for tag in post.tags limit:3 %}
+                    <span class="tech-tag" style="font-size: 0.75rem;">{{ tag }}</span>
+                    {% endfor %}
+                </div>
+                {% endif %}
+                <a href="{{ post.url | relative_url }}" style="color: var(--accent-primary); font-weight: 600;">Read
+                    More &rarr;</a>
+            </article>
+            {% endfor %}
+        </div>
+
+        {% if site.posts.size > 3 %}
+        <div style="text-align: center;">
+            <a href="{{ '/blog/' | relative_url }}" class="btn btn-secondary">View All Posts</a>
+        </div>
+        {% endif %}
+
+        {% if site.posts.size == 0 %}
+        <div style="text-align: center; padding: 3rem;">
+            <p style="color: var(--text-secondary);">Blog posts coming soon! Stay tuned.</p>
+        </div>
+        {% endif %}
+    </div>
+</section>
+
+<!-- Contact Section -->
+<section id="contact" style="text-align: center;">
+    <div class="container fade-in-up">
+        <h2 style="font-size: 2.5rem; margin-bottom: 1.5rem;">Let's <span class="accent-text">Connect</span></h2>
+        <p style="color: var(--text-secondary); max-width: 500px; margin: 0 auto 2.5rem;">
+            I'm actively seeking new roles and opportunities. Let's build something amazing together.
+        </p>
+        <div style="display: flex; gap: 2rem; justify-content: center; font-size: 2rem;">
+            <a href="https://github.com/{{ site.author.github }}" target="_blank" style="color: var(--text-secondary);"
+                aria-label="GitHub"><i class="fab fa-github"></i></a>
+            <a href="https://www.linkedin.com/in/{{ site.author.linkedin }}/" target="_blank"
+                style="color: var(--text-secondary);" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+            <a href="mailto:{{ site.author.email }}" style="color: var(--text-secondary);" aria-label="Email"><i
+                    class="fas fa-envelope"></i></a>
+        </div>
+    </div>
+</section>

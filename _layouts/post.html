@@ -1,0 +1,66 @@
+---
+layout: default
+---
+
+<article class="blog-post">
+    <div class="container">
+        <header class="post-header fade-in-up">
+            <div class="post-meta">
+                <time datetime="{{ page.date | date_to_xmlschema }}">
+                    {{ page.date | date: "%B %d, %Y" }}
+                </time>
+                {% if page.categories.size > 0 %}
+                <span class="post-categories">
+                    {% for category in page.categories %}
+                    <span class="category-tag">{{ category }}</span>
+                    {% endfor %}
+                </span>
+                {% endif %}
+                {% if page.reading_time %}
+                <span class="reading-time">{{ page.reading_time }} min read</span>
+                {% endif %}
+            </div>
+            <h1 class="post-title">{{ page.title }}</h1>
+            {% if page.description %}
+            <p class="post-description">{{ page.description }}</p>
+            {% endif %}
+        </header>
+
+        <div class="post-content fade-in-up delay-100">
+            {{ content }}
+        </div>
+
+        <footer class="post-footer fade-in-up delay-200">
+            {% if page.tags.size > 0 %}
+            <div class="post-tags">
+                <span>Tags:</span>
+                {% for tag in page.tags %}
+                <span class="tech-tag">{{ tag }}</span>
+                {% endfor %}
+            </div>
+            {% endif %}
+
+            <div class="post-navigation">
+                {% if page.previous.url %}
+                <a href="{{ page.previous.url | relative_url }}" class="nav-prev">
+                    <span>&larr; Previous</span>
+                    <span class="nav-title">{{ page.previous.title }}</span>
+                </a>
+                {% endif %}
+                {% if page.next.url %}
+                <a href="{{ page.next.url | relative_url }}" class="nav-next">
+                    <span>Next &rarr;</span>
+                    <span class="nav-title">{{ page.next.title }}</span>
+                </a>
+                {% endif %}
+            </div>
+
+            <div class="back-to-blog">
+                <a href="{{ '/blog/' | relative_url }}" class="btn btn-secondary">
+                    <i class="fas fa-arrow-left"></i> Back to Blog
+                </a>
+            </div>
+        </footer>
+    </div>
+</article>
+

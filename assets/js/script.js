@@ -30,17 +30,30 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // --- Smooth Scrolling ---
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    // --- Smooth Scrolling ---
+    // Handle links that point to hashes on the current page
+    document.querySelectorAll('a[href*="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
-            e.preventDefault();
-            const targetId = this.getAttribute('href');
-            if (targetId === '#') return;
+            const href = this.getAttribute('href');
+            // Check if the link is for the current page
+            const [path, hash] = href.split('#');
+            const currentPath = window.location.pathname;
 
-            const targetElement = document.querySelector(targetId);
-            if (targetElement) {
-                targetElement.scrollIntoView({
-                    behavior: 'smooth'
-                });
+            // If it's just a hash or the path matches the current page
+            if ((!path || path === currentPath || currentPath.endsWith(path) || href.startsWith('#')) && hash) {
+                const targetElement = document.getElementById(hash);
+                if (targetElement) {
+                    e.preventDefault();
+                    // Close mobile menu if open
+                    if (typeof closeMenu === 'function') closeMenu();
+                    
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                    
+                    // Update URL without jumping
+                    history.pushState(null, null, '#' + hash);
+                }
             }
         });
     });
@@ -100,6 +113,9 @@ document.addEventListener('DOMContentLoaded', () => {
     let lastScrollY = window.scrollY;
     const scrollThreshold = 100;
     const scrollDelta = 10;
+    
+    // Check if we're on a blog post page
+    const isBlogPost = document.querySelector('.blog-post') !== null;
 
     // --- Mouse Glow Effect ---
     const cursorGlow = document.getElementById('cursor-glow');
@@ -113,6 +129,20 @@ document.addEventListener('DOMContentLoaded', () => {
     window.addEventListener('scroll', () => {
         const currentScrollY = window.scrollY;
 
+        // On blog post pages, just hide header when scrolling down, don't show on scroll up
+        if (isBlogPost) {
+            if (currentScrollY > scrollThreshold) {
+                header.classList.add('sticky-navbar-hide');
+                header.classList.remove('sticky-navbar-show');
+            } else {
+                // Only show at very top of page
+                header.classList.remove('sticky-navbar-hide');
+                header.classList.add('sticky-navbar-show');
+            }
+            return;
+        }
+
+        // Default behavior for non-blog pages
         if (currentScrollY > scrollThreshold) {
             if (Math.abs(currentScrollY - lastScrollY) > scrollDelta) {
                 if (currentScrollY > lastScrollY) {
