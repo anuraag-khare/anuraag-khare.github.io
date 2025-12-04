@@ -1,0 +1,63 @@
+# Site settings
+title: Anuraag Khare
+description: >-
+  Software Engineer specializing in backend systems, GenAI, and cloud technologies.
+  Personal portfolio and blog.
+url: "https://anuraag-khare.github.io"
+baseurl: ""
+
+# Author info
+author:
+  name: Anuraag Khare
+  email: anuraagkhare2121@outlook.com
+  github: anuraag-khare
+  linkedin: anuraagkhare
+
+# Build settings
+markdown: kramdown
+highlighter: rouge
+
+# Permalink structure for blog posts
+permalink: /blog/:year/:month/:day/:title/
+
+# Pagination
+paginate: 5
+paginate_path: "/blog/page:num/"
+
+# Plugins
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+  - jekyll-sitemap
+  - jekyll-paginate
+
+# Collections (optional, for future)
+collections:
+  projects:
+    output: true
+    permalink: /projects/:name/
+
+# Defaults
+defaults:
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+      author: "Anuraag Khare"
+  - scope:
+      path: ""
+      type: "pages"
+    values:
+      layout: "default"
+
+# Exclude from build
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - README.md
+  - node_modules
+  - vendor
+  - .bundle
+  - .sass-cache
+
