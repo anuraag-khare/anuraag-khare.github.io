@@ -4,11 +4,11 @@
     --card-bg: rgba(20, 20, 25, 0.6);
     --text-primary: #e5e5e5;
     --text-secondary: #a0a0a0;
-    --accent-primary: #3b82f6;
-    /* Blue */
-    --accent-secondary: #8b5cf6;
-    /* Purple */
-    --accent-glow: rgba(59, 130, 246, 0.5);
+    --accent-primary: #00dc82;
+    /* Green */
+    --accent-secondary: #30dcd4;
+    /* Teal */
+    --accent-glow: rgba(0, 220, 130, 0.5);
     --border-color: rgba(255, 255, 255, 0.08);
     --grid-color: rgba(255, 255, 255, 0.03);
     --font-heading: 'Outfit', sans-serif;
@@ -23,7 +23,8 @@
 
 html {
     scroll-behavior: smooth;
-    scroll-padding-top: 100px; /* Adjust based on header height */
+    scroll-padding-top: 100px;
+    /* Adjust based on header height */
 }
 
 body {
@@ -58,7 +59,7 @@ body {
     height: 100%;
     pointer-events: none;
     z-index: 0;
-    background: radial-gradient(600px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(59, 130, 246, 0.06), transparent 40%);
+    background: radial-gradient(600px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(0, 220, 130, 0.06), transparent 40%);
 }
 
 /* --- Typography --- */

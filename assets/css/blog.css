@@ -34,7 +34,7 @@
 }
 
 .category-tag {
-    background: rgba(139, 92, 246, 0.15);
+    background: rgba(54, 228, 218, 0.15);
     color: var(--accent-secondary);
     padding: 0.25rem 0.75rem;
     border-radius: 20px;
@@ -102,7 +102,7 @@
 .post-content a {
     color: var(--accent-primary);
     text-decoration: underline;
-    text-decoration-color: rgba(59, 130, 246, 0.3);
+    text-decoration-color: rgba(0, 220, 130, 0.3);
     text-underline-offset: 3px;
     transition: text-decoration-color 0.3s;
 }
@@ -212,7 +212,7 @@
     margin-bottom: 2rem;
 }
 
-.post-tags > span:first-child {
+.post-tags>span:first-child {
     color: var(--text-secondary);
     font-weight: 500;
 }
@@ -300,19 +300,55 @@
 /* Code colors - inspired by One Dark theme */
 .highlight .c,
 .highlight .c1,
-.highlight .cm { color: #5c6370; font-style: italic; } /* Comments */
+.highlight .cm {
+    color: #5c6370;
+    font-style: italic;
+}
+
+/* Comments */
 .highlight .k,
 .highlight .kd,
-.highlight .kn { color: #c678dd; } /* Keywords */
+.highlight .kn {
+    color: #c678dd;
+}
+
+/* Keywords */
 .highlight .s,
 .highlight .s1,
-.highlight .s2 { color: #98c379; } /* Strings */
-.highlight .n,
-.highlight .nv { color: #e06c75; } /* Names/Variables */
-.highlight .nf { color: #61afef; } /* Function names */
-.highlight .o { color: #56b6c2; } /* Operators */
-.highlight .p { color: #abb2bf; } /* Punctuation */
-.highlight .mi,
-.highlight .mf { color: #d19a66; } /* Numbers */
-.highlight .nb { color: #e5c07b; } /* Built-in names */
+.highlight .s2 {
+    color: #98c379;
+}
 
+/* Strings */
+.highlight .n,
+.highlight .nv {
+    color: #e06c75;
+}
+
+/* Names/Variables */
+.highlight .nf {
+    color: #61afef;
+}
+
+/* Function names */
+.highlight .o {
+    color: #56b6c2;
+}
+
+/* Operators */
+.highlight .p {
+    color: #abb2bf;
+}
+
+/* Punctuation */
+.highlight .mi,
+.highlight .mf {
+    color: #d19a66;
+}
+
+/* Numbers */
+.highlight .nb {
+    color: #e5c07b;
+}
+
+/* Built-in names */
