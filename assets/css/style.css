@@ -380,8 +380,13 @@ header.sticky-navbar-show {
 .timeline-item {
     position: relative;
     padding-left: 2rem;
+    padding-bottom: 3rem;
     border-left: 2px solid var(--border-color);
-    margin-bottom: 3rem;
+}
+
+.timeline-item:last-child {
+    border-left-color: transparent;
+    padding-bottom: 0;
 }
 
 .timeline-item::before {
