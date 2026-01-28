@@ -51,29 +51,38 @@ technologies.
                 <h3 style="font-size: 1.5rem; margin-bottom: 1.5rem;">Technical Arsenal</h3>
 
                 <div style="margin-bottom: 2rem;">
-                    <h4 style="color: #fff; margin-bottom: 1rem; font-size: 1.1rem;">Languages</h4>
+                    <h4 style="color: var(--heading-color); margin-bottom: 1rem; font-size: 1.1rem;">Languages</h4>
                     <div style="display: flex; flex-wrap: wrap; gap: 0.8rem;">
-                        <span class="tech-tag">Python</span><span class="tech-tag">Java</span><span
-                            class="tech-tag">Go</span><span class="tech-tag">TypeScript</span>
+                        <span class="tech-tag"><i class="fab fa-python"></i> Python</span>
+                        <span class="tech-tag"><i class="fab fa-java"></i> Java</span>
+                        <span class="tech-tag"><i class="fab fa-golang"></i> Go</span>
+                        <span class="tech-tag"><i class="fas fa-code"></i> TypeScript</span>
                     </div>
                 </div>
 
                 <div style="margin-bottom: 2rem;">
-                    <h4 style="color: #fff; margin-bottom: 1rem; font-size: 1.1rem;">Web & Databases</h4>
+                    <h4 style="color: var(--heading-color); margin-bottom: 1rem; font-size: 1.1rem;">Web & Databases
+                    </h4>
                     <div style="display: flex; flex-wrap: wrap; gap: 0.8rem;">
-                        <span class="tech-tag">Django</span><span class="tech-tag">FastAPI</span><span
-                            class="tech-tag">SpringBoot</span><span class="tech-tag">Express.js</span><span
-                            class="tech-tag">PostgreSQL</span><span class="tech-tag">MongoDB</span><span
-                            class="tech-tag">Redis</span>
+                        <span class="tech-tag"><i class="fab fa-python"></i> Django</span>
+                        <span class="tech-tag"><i class="fas fa-bolt"></i> FastAPI</span>
+                        <span class="tech-tag"><i class="fas fa-leaf"></i> SpringBoot</span>
+                        <span class="tech-tag"><i class="fab fa-node-js"></i> Express.js</span>
+                        <span class="tech-tag"><i class="fas fa-database"></i> PostgreSQL</span>
+                        <span class="tech-tag"><i class="fas fa-database"></i> MongoDB</span>
+                        <span class="tech-tag"><i class="fas fa-server"></i> Redis</span>
                     </div>
                 </div>
 
                 <div>
-                    <h4 style="color: #fff; margin-bottom: 1rem; font-size: 1.1rem;">Cloud & Tools</h4>
+                    <h4 style="color: var(--heading-color); margin-bottom: 1rem; font-size: 1.1rem;">Cloud & Tools</h4>
                     <div style="display: flex; flex-wrap: wrap; gap: 0.8rem;">
-                        <span class="tech-tag">GCP</span><span class="tech-tag">AWS</span><span
-                            class="tech-tag">RabbitMQ</span><span class="tech-tag">Docker</span><span
-                            class="tech-tag">Kubernetes</span><span class="tech-tag">GenAI</span>
+                        <span class="tech-tag"><i class="fab fa-google"></i> GCP</span>
+                        <span class="tech-tag"><i class="fab fa-aws"></i> AWS</span>
+                        <span class="tech-tag"><i class="fas fa-envelope"></i> RabbitMQ</span>
+                        <span class="tech-tag"><i class="fab fa-docker"></i> Docker</span>
+                        <span class="tech-tag"><i class="fas fa-dharmachakra"></i> Kubernetes</span>
+                        <span class="tech-tag"><i class="fas fa-robot"></i> GenAI</span>
                     </div>
                 </div>
             </div>
@@ -191,7 +200,7 @@ technologies.
                     {{ post.date | date: "%B %d, %Y" }}
                 </span>
                 <h3 style="font-size: 1.3rem; margin-bottom: 0.5rem;">
-                    <a href="{{ post.url | relative_url }}" style="color: #fff;">{{ post.title }}</a>
+                    <a href="{{ post.url | relative_url }}" style="color: var(--heading-color);">{{ post.title }}</a>
                 </h3>
                 <p style="color: var(--text-secondary); margin-bottom: 1rem; font-size: 0.95rem;">
                     {{ post.excerpt | strip_html | truncate: 120 }}

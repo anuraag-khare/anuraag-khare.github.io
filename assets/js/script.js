@@ -6,6 +6,62 @@ document.addEventListener('DOMContentLoaded', () => {
     const mobileMenu = document.getElementById('mobile-menu');
     const navLinks = document.querySelectorAll('.nav-link');
 
+    // --- Theme Toggle ---
+    const themeToggleBtn = document.getElementById('theme-toggle');
+    const themeToggleMobileBtn = document.getElementById('theme-toggle-mobile');
+    const htmlElement = document.documentElement;
+    const moonIcon = '<i class="fas fa-moon"></i>';
+    const sunIcon = '<i class="fas fa-sun"></i>';
+
+    // Check for saved user preference, if any, on load of the website
+    const savedTheme = localStorage.getItem('theme');
+    const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+    if (savedTheme) {
+        htmlElement.setAttribute('data-theme', savedTheme);
+        updateToggleIcons(savedTheme);
+    } else if (prefersDark) {
+        // Default to dark if system prefers it (or just default to dark as per original design)
+        // Our default CSS is dark, so we don't need to do anything unless it's light
+    }
+
+    function toggleTheme() {
+        const currentTheme = htmlElement.getAttribute('data-theme');
+        const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+
+        htmlElement.setAttribute('data-theme', newTheme);
+        localStorage.setItem('theme', newTheme);
+        updateToggleIcons(newTheme);
+    }
+
+    function updateToggleIcons(theme) {
+        const icon = theme === 'light' ? moonIcon : sunIcon; // If light, show moon to switch to dark
+        // Wait, if it's light mode, we want to show the Moon icon (to switch to dark).
+        // If it's dark mode, we want to show the Sun icon (to switch to light).
+
+        // Actually, let's look at the implementation plan. 
+        // Dark is default.
+        // If theme is 'light', we are in light mode. Button should show Moon.
+        // If theme is not set or 'dark', we are in dark mode. Button should show Sun.
+
+        const content = theme === 'light' ? moonIcon : sunIcon;
+
+        if (themeToggleBtn) themeToggleBtn.innerHTML = content;
+        if (themeToggleMobileBtn) {
+            themeToggleMobileBtn.innerHTML = content + ' Toggle Theme';
+        }
+    }
+
+    // Initial icon state
+    if (htmlElement.getAttribute('data-theme') === 'light') {
+        updateToggleIcons('light');
+    } else {
+        updateToggleIcons('dark');
+    }
+
+    if (themeToggleBtn) themeToggleBtn.addEventListener('click', toggleTheme);
+    if (themeToggleMobileBtn) themeToggleMobileBtn.addEventListener('click', toggleTheme);
+
     function openMenu() {
         mobileMenu.style.display = 'flex';
         document.body.style.overflow = 'hidden';
@@ -46,11 +102,11 @@ document.addEventListener('DOMContentLoaded', () => {
                     e.preventDefault();
                     // Close mobile menu if open
                     if (typeof closeMenu === 'function') closeMenu();
-                    
+
                     targetElement.scrollIntoView({
                         behavior: 'smooth'
                     });
-                    
+
                     // Update URL without jumping
                     history.pushState(null, null, '#' + hash);
                 }
@@ -113,7 +169,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let lastScrollY = window.scrollY;
     const scrollThreshold = 100;
     const scrollDelta = 10;
-    
+
     // Check if we're on a blog post page
     const isBlogPost = document.querySelector('.blog-post') !== null;
 
