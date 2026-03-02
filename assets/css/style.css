@@ -25,22 +25,22 @@
 }
 
 [data-theme="light"] {
-    --bg-color: #ffffff;
-    --card-bg: rgba(240, 240, 240, 0.6);
+    --bg-color: #f5f5f0;
+    --card-bg: rgba(235, 235, 230, 0.6);
     --text-primary: #1a1a1a;
     --text-secondary: #4a4a4a;
     --border-color: rgba(0, 0, 0, 0.1);
-    --grid-color: rgba(0, 0, 0, 0.05);
+    --grid-color: rgba(0, 0, 0, 0.04);
     /* Adjust accent glow for light mode visibility */
     --accent-glow: rgba(0, 220, 130, 0.2);
-    --header-bg: rgba(255, 255, 255, 0.9);
-    --mobile-menu-bg: rgba(255, 255, 255, 0.98);
+    --header-bg: rgba(245, 245, 240, 0.9);
+    --mobile-menu-bg: rgba(245, 245, 240, 0.98);
     --heading-color: #1a1a1a;
     --btn-secondary-bg: rgba(0, 0, 0, 0.05);
     --btn-secondary-color: #1a1a1a;
     --btn-secondary-border: rgba(0, 0, 0, 0.1);
     --gradient-text-start: #1a1a1a;
-    --code-bg: #f5f5f5;
+    --code-bg: #ededea;
     --code-border: rgba(0, 0, 0, 0.1);
 }
 
@@ -251,27 +251,33 @@ header.sticky-navbar-show {
 @keyframes slide-vertical {
 
     0%,
-    20% {
+    14% {
         transform: translateY(0);
     }
 
-    25%,
-    45% {
+    17%,
+    30% {
         transform: translateY(-1.2em);
     }
 
-    50%,
-    70% {
+    33%,
+    47% {
         transform: translateY(-2.4em);
     }
 
-    75%,
-    95% {
+    50%,
+    64% {
         transform: translateY(-3.6em);
     }
 
-    100% {
+    67%,
+    80% {
         transform: translateY(-4.8em);
+    }
+
+    83%,
+    100% {
+        transform: translateY(-6.0em);
     }
 }
 
@@ -288,27 +294,33 @@ header.sticky-navbar-show {
     @keyframes slide-vertical {
 
         0%,
-        20% {
+        14% {
             transform: translateY(0);
         }
 
-        25%,
-        45% {
+        17%,
+        30% {
             transform: translateY(-1.3em);
         }
 
-        50%,
-        70% {
+        33%,
+        47% {
             transform: translateY(-2.6em);
         }
 
-        75%,
-        95% {
+        50%,
+        64% {
             transform: translateY(-3.9em);
         }
 
-        100% {
+        67%,
+        80% {
             transform: translateY(-5.2em);
+        }
+
+        83%,
+        100% {
+            transform: translateY(-6.5em);
         }
     }
 }
