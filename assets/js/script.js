@@ -1,4 +1,10 @@
 document.addEventListener('DOMContentLoaded', () => {
+    // --- Initialize Web Haptics ---
+    let haptics = null;
+    if (typeof WebHaptics !== 'undefined') {
+        haptics = new WebHaptics.WebHaptics();
+    }
+
 
     // --- Mobile Menu Toggle ---
     const mobileMenuButton = document.getElementById('mobile-menu-button');
@@ -59,15 +65,27 @@ document.addEventListener('DOMContentLoaded', () => {
         updateToggleIcons('dark');
     }
 
-    if (themeToggleBtn) themeToggleBtn.addEventListener('click', toggleTheme);
-    if (themeToggleMobileBtn) themeToggleMobileBtn.addEventListener('click', toggleTheme);
+    if (themeToggleBtn) {
+        themeToggleBtn.addEventListener('click', () => {
+            if (haptics) haptics.trigger(WebHaptics.defaultPatterns.success);
+            toggleTheme();
+        });
+    }
+    if (themeToggleMobileBtn) {
+        themeToggleMobileBtn.addEventListener('click', () => {
+            if (haptics) haptics.trigger(WebHaptics.defaultPatterns.success);
+            toggleTheme();
+        });
+    }
 
     function openMenu() {
+        if (haptics) haptics.trigger();
         mobileMenu.style.display = 'flex';
         document.body.style.overflow = 'hidden';
     }
 
     function closeMenu() {
+        if (haptics) haptics.trigger();
         mobileMenu.style.display = 'none';
         document.body.style.overflow = '';
     }
@@ -100,6 +118,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 const targetElement = document.getElementById(hash);
                 if (targetElement) {
                     e.preventDefault();
+                    if (haptics) haptics.trigger(); // Trigger on smooth scroll clicks
                     // Close mobile menu if open
                     if (typeof closeMenu === 'function') closeMenu();
 
@@ -110,6 +129,9 @@ document.addEventListener('DOMContentLoaded', () => {
                     // Update URL without jumping
                     history.pushState(null, null, '#' + hash);
                 }
+            } else if (haptics) {
+                // Trigger for regular outward links if not smoothly scrolling
+                haptics.trigger();
             }
         });
     });
@@ -218,6 +240,13 @@ document.addEventListener('DOMContentLoaded', () => {
             header.classList.add('sticky-navbar-show');
             lastScrollY = currentScrollY;
         }
+    });
+
+    // --- Global Click Haptics for generic buttons and links ---
+    document.querySelectorAll('.btn, .card').forEach(el => {
+        el.addEventListener('click', () => {
+            if (haptics) haptics.trigger();
+        });
     });
 
 });

@@ -1,0 +1,23 @@
+{
+  "name": "anuraag-khare.github.io",
+  "version": "1.0.0",
+  "description": "A personal website featuring my portfolio and technical blog, built with Jekyll and hosted on GitHub Pages.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/anuraag-khare/anuraag-khare.github.io.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/anuraag-khare/anuraag-khare.github.io/issues"
+  },
+  "homepage": "https://github.com/anuraag-khare/anuraag-khare.github.io#readme",
+  "dependencies": {
+    "web-haptics": "^0.0.6"
+  }
+}
